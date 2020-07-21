@@ -73,7 +73,9 @@ export default class AddIncome extends Component {
       title: ''
     })
 
-    window.location = '/expense';
+    setTimeout(() => {
+      window.location = '/income';
+    }, 2000)
   }
 
   render() {

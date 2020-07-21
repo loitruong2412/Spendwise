@@ -52,6 +52,9 @@ export default class ExpenseList extends Component {
     return (
       <div>
         <h3>My Expense</h3>
+        <div style={{marginBottom: "10px"}}>
+          <Link to={"/addexpense"}><button type="button" class="btn btn-danger">Add Expense</button></Link>
+        </div>
         <table className="table">
           <thead className="thead-light">
             <tr>

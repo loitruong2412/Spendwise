@@ -73,7 +73,9 @@ export default class AddExpense extends Component {
       title: ''
     })
 
-    window.location = '/expense';
+    setTimeout(() => {
+      window.location = '/expense';
+    }, 2000)
   }
 
   render() {

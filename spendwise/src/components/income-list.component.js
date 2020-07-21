@@ -53,7 +53,7 @@ export default class IncomeList extends Component {
       <div>
         <h3>My Income</h3>
         <div style={{marginBottom: "10px"}}>
-          <button type="button" class="btn btn-success">Add Income</button>
+          <Link to={"/addincome"}><button type="button" class="btn btn-success">Add Income</button></Link>
         </div>
         <table className="table">
           <thead className="thead-light">
