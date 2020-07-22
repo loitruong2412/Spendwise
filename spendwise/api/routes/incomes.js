@@ -10,12 +10,14 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
   const title = req.body.title;
   const type = req.body.type;
+  const amount = req.body.amount;
   const month = req.body.month;
   const year = req.body.year;
 
   const newIncome = new Income({
     title,
     type,
+    amount,
     month,
     year,
   });
@@ -42,6 +44,7 @@ router.route('/update/:id').post((req, res) => {
     .then(income => {
       income.title = req.body.title;
       income.type = req.body.type;
+      income.amount = req.body.amount;
       income.month = req.body.month;
       income.year = req.body.year;
 

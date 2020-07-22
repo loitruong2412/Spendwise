@@ -7,6 +7,7 @@ export default class EditExpense extends Component {
 
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeType = this.onChangeType.bind(this);
+    this.onChangeAmount = this.onChangeAmount.bind(this);
     this.onChangeMonth = this.onChangeMonth.bind(this);
     this.onChangeYear = this.onChangeYear.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -15,6 +16,7 @@ export default class EditExpense extends Component {
       title: '',
       type: '',
       types: ['Education', 'Entertainment', 'Food', 'Miscellaneous', 'Personal', 'Transportation'],
+      amount: 0,
       month: '',
       year: 0,
       months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -29,6 +31,7 @@ export default class EditExpense extends Component {
         this.setState({
           title: res.data.title,
           type: res.data.type,
+          amount: res.data.amount,
           month: res.data.month,
           year: res.data.year
         })
@@ -46,6 +49,12 @@ export default class EditExpense extends Component {
   }
 
   onChangeType(e) {
+    this.setState({
+      type: e.target.value
+    });
+  }
+
+  onChangeAmount(e) {
     this.setState({
       type: e.target.value
     });
@@ -78,7 +87,9 @@ export default class EditExpense extends Component {
     axios.post('http://localhost:5000/expenses/update/'+this.props.match.params.id, expense)
       .then(res => console.log(res.data));
 
-    window.location = '/expense';
+    setTimeout(() => {
+      window.location = '/expense';
+    }, 2000)
   }
 
   render() {
@@ -111,6 +122,15 @@ export default class EditExpense extends Component {
                 })
               }
             </select>
+          </div>
+          <div className="form-group">
+            <label>Amount: </label>
+            <input type="number"
+              required
+              className="form-control"
+              value={this.state.amount}
+              onChange={this.onChangeAmount}
+            />
           </div>
           <div className="form-group">
             <label>Month: </label>

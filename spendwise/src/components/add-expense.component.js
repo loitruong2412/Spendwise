@@ -7,6 +7,7 @@ export default class AddExpense extends Component {
 
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeType = this.onChangeType.bind(this);
+    this.onChangeAmount = this.onChangeAmount.bind(this);
     this.onChangeMonth = this.onChangeMonth.bind(this);
     this.onChangeYear = this.onChangeYear.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -42,6 +43,12 @@ export default class AddExpense extends Component {
     });
   }
 
+  onChangeAmount(e) {
+    this.setState({
+      amount: e.target.value
+    })
+  }
+
   onChangeMonth(e) {
     this.setState({
       month: e.target.value
@@ -60,6 +67,7 @@ export default class AddExpense extends Component {
     const expense = {
       title: this.state.title,
       type: this.state.type,
+      amount: this.state.amount,
       month: this.state.month,
       year: this.state.year,
     }
@@ -108,6 +116,15 @@ export default class AddExpense extends Component {
                 })
               }
             </select>
+          </div>
+          <div className="form-group">
+            <label>Amount: </label>
+            <input type="number"
+              required
+              className="form-control"
+              value={this.state.amount}
+              onChange={this.onChangeAmount}
+            />
           </div>
           <div className="form-group">
             <label>Month: </label>

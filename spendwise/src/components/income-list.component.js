@@ -6,6 +6,7 @@ const Income = props => (
   <tr>
     <td>{props.income.title}</td>
     <td>{props.income.type}</td>
+    <td>{props.income.amount}</td>
     <td>{props.income.month}</td>
     <td>{props.income.year}</td>
     <td>
@@ -60,6 +61,7 @@ export default class IncomeList extends Component {
             <tr>
               <th>Title</th>
               <th>Type</th>
+              <th>Amount</th>
               <th>Month</th>
               <th>Year</th>
               <th>Action</th>
